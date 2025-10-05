@@ -1,3 +1,9 @@
+databases:
+  - name: moviebazzardb
+    plan: free
+    databaseName: moviebazzardb
+    user: moviebazzar
+
 services:
   - type: web
     plan: free
