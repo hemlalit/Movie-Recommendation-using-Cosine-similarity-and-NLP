@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(s+4*4hmzc2dlo&6d!*p8)5e3s!w1e^yb92za+3e!kddz@i=q8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'moviebazzar-vsqs.onrender.com']
 
 
 # Application definition
