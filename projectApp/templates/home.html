@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Movies</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .nav-wrapper {
+            background-color: #ffc107;
+        }
+
+        .brand-logo {
+            margin-left: 20px;
+            margin-top: -1%;
+        }
+
+        .gfg {
+            margin-left: 40%;
+            font-size: 45px;
+            font-weight: 200;
+            color: green;
+        }
+
+        .card-content {
+            text-align: center;
+        }
+
+        #web {
+            margin-left: 85%;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 5px 20px;
+            border-radius: 9px;
+            background-color: rgb(235, 100, 100);
+        }
+
+        .JT {
+            margin-top: -10%;
+            font-size: 23px;
+            color: black;
+            font-weight: 400;
+        }
+
+        .ex {
+            margin-top: 2%;
+        }
+
+        #oooo {
+            background-color: red;
+            margin-left: 1600px;
+        }
+
+        .ex23 {
+            font-size: 17px;
+        }
+
+        .gfg1 {
+            color: rgb(78, 71, 71);
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .gfgd {
+            color: gray;
+        }
+
+        .btn {
+            padding: 0px 10px;
+            font-weight: bold;
+        }
+
+        .btn-danger {
+            position: absolute;
+            right: 4rem;
+            top: 1em;
+        }
+    </style>
+</head>
+<nav>
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo">
+            <h4><b>Movie Recommendation System </b></h4>
+        </a>
+        <button class="btn btn-danger" id="oooo"> <a href="{% url 'logout' %}">Logout </a></button>
+    </div>
+</nav>
+
+<body>
+    <h1 class="gfg"> MovieBazzar</h1>
+    <div class="container mt-5">
+        <form method="POST" action="{% url 'recommend' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="movie_name" class="form-label">Choose a movie you like:</label>
+                <select name="movie_name" class="form-select">
+                    {% for movie in movie_list %}
+                    <option value="{{ movie }}">{{ movie }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Filter recommendations by:</label><br>
+                <input type="radio" name="filter_by" value="overview" checked> Overview
+                <input type="radio" name="filter_by" value="genre"> Genre
+            </div>
+            <button type="submit" class="btn btn-primary">Recommend</button>
+        </form>
+    </div>
+</body>
+
+</html>
