@@ -1,9 +1,3 @@
-databases:
-  - name: moviebazzardb
-    plan: free
-    databaseName: mysite
-    user: moviebazzar
-
 services:
   - type: web
     plan: free
